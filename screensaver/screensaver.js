@@ -1,25 +1,26 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
-    
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 ship={
-    x:Math.floor(Math.random()*1279+1),
-    y:Math.floor(Math.random()*719+1),
+    x:Math.floor(Math.random()*(canvas.width-1)+1),
+    y:Math.floor(Math.random()*(canvas.height-1)+1),
     r:0,
     vx:Math.random()+1,
     vy:Math.random()+1,
     red: {
-        value:Math.floor(Math.random()*254+1),//0,
+        value:Math.floor(Math.random()*254+1),
         change:1,
         hex:"00"
     },
     blue: {
-        value:Math.floor(Math.random()*254+1),//255,
+        value:Math.floor(Math.random()*254+1),
         change:1,
         hex:"00"
     },
     green:{
-        value:Math.floor(Math.random()*254+1),//170,
+        value:Math.floor(Math.random()*254+1),
         change:1,
         hex:"00"
     }
@@ -45,11 +46,11 @@ move();
 
 function move(){
     ship.x=ship.x+ship.vx
-    if((ship.x+55)>1280 || (ship.x-55)<0){
+    if((ship.x+40)>canvas.width || (ship.x-40)<0){
         ship.vx *=-1
     }
     ship.y=ship.y+ship.vy
-    if((ship.y+55)>720|| (ship.y-55)<0){
+    if((ship.y+40)>canvas.height|| (ship.y-40)<0){
         ship.vy *=-1
     }
 
@@ -71,7 +72,6 @@ ship.blue.hex = rgbToHex(ship.blue.value);
 };
 
 function newframe(){
-//ctx.clearRect(0, 0, canvas.width, canvas.height);
 ctx.resetTransform();
 ctx.beginPath();
 ctx.translate(ship.x, ship.y)
@@ -79,7 +79,6 @@ ctx.rotate(ship.r*Math.PI/180);
 ctx.translate(-ship.x, -ship.y)
 
 ctx.moveTo(ship.x+50,ship.y+55);
-// ctx.rect(ship.x,ship.y, 55, 55);
 
 //ship shape
 ctx.lineTo(ship.x, ship.y+40);
@@ -88,12 +87,9 @@ ctx.lineTo(ship.x, ship.y-55);
 ctx.lineTo(ship.x+50, ship.y +55)
 ctx.lineTo(ship.x, ship.y+40);
 ctx.moveTo(ship.x, ship.y);
-
-
+    
+    
 ctx.closePath();
-
-// the fill color
-
 var hexrandom = "#"+ship.red.hex+ship.green.hex+ship.blue.hex;
 ctx.strokeStyle = hexrandom;
 ctx.lineWidth = 5;
