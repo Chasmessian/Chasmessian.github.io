@@ -1,1 +1,12 @@
+body {
+	overflow: hidden;
 
+	background-color:rgb(12, 0, 24);
+}
+#canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: rgb(12, 0, 24);
+	cursor: crosshair;
+}
