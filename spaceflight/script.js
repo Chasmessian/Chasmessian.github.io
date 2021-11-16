@@ -1,18 +1,32 @@
+const spacing = '5px';
+const styles = 
+      `padding: ${spacing}; background-color: darkblue; color: white; font-style: 
+       italic; border: ${spacing} solid crimson; font-size: 2em;`;
+console.log('%cHANDS OFF MY CODE', styles);
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
+dangerdistance=2
 ship={
     x:canvas.width/2,
     y:canvas.height/2,
     r:0,
     rspeed:2,
     tv:0, //total velocity
-    maxvelocity:3.5, 
+    maxvelocity:2.5, 
     vx:0,
     vy:0,
+    friction:.03,
+    accelerationspeed:.2
+};
 
+
+function end_game() {
+    clearInterval(maininterval);
+    clearInterval(wallmaker)
+    alert("Game Over. Reload to Play Again.")
 };
 
 var keyState = {};    
@@ -34,37 +48,38 @@ function gameLoop() {
     }
     if(keyState[38] || keyState[87]){
         if(ship.tv<ship.maxvelocity){
-            ship.tv +=.05;
+            ship.tv +=ship.accelerationspeed
         }
     } else if (!keyState[38] || !keyState[87]){
         if(ship.tv>0){
-        ship.tv -=.02
+        ship.tv -= ship.friction
         } else if (ship.tv<0){
             ship.tv=0
         }
     }
 }
 
+
 //slowly changes one number to another..
-function numberchange(start, destination){
-    var difference = destination-start;
-    var addFraction = difference/100
-    i=0
-    var numberinterval = setInterval(function(){
-        if(i!=100){
-        start=start+addFraction
-        i=i+1
-        } else {
-            start=destination
-            clearInterval(numberinterval);
-        }
-    },5)
-    };
+// function numberchange(start, destination){
+//     var difference = destination-start;
+//     var addFraction = difference/100
+//     i=0
+//     var numberinterval = setInterval(function(){
+//         if(i!=100){
+//         start=start+addFraction
+//         i=i+1
+//         } else {
+//             start=destination
+//             clearInterval(numberinterval);
+//         }
+//     },5)
+//     };
 //delete if broken
 
 
 
-setInterval(function(){
+var maininterval = setInterval(function(){
 if(ship.r>=360){ship.r-=360} else if(ship.r<0){ship.r+=360};
 
 if(ship.x>canvas.width-20){
@@ -79,11 +94,41 @@ if (ship.y<20) {
 if(ship.y>canvas.height-20){
     ship.y=canvas.height-20
 }
-
+testgamestatus();
 gameLoop();
 newframe();
 move();
 },5)
+
+function testgamestatus(){
+    for(var b =0;b<walls.length;b++){
+        if(walls[b]["walltype"]===1){
+            if(walls[b]["wally"]-dangerdistance<Math.floor(ship.y)&&Math.floor(ship.y)<walls[b]["wally"]+dangerdistance){
+                if(Math.floor(ship.x)<walls[b]["wallx"]-100){end_game();}
+                if(Math.floor(ship.x)>walls[b]["wallx"]+100){end_game();}
+            }
+        }
+        if(walls[b]["walltype"]===2){
+            if(walls[b]["wallx"]-dangerdistance<Math.floor(ship.x)&&Math.floor(ship.x)<walls[b]["wallx"]+dangerdistance){
+                if(Math.floor(ship.y)<walls[b]["wally"]-100){end_game();}
+                if(Math.floor(ship.y)>walls[b]["wally"]+100){end_game();}
+            }
+        }
+        if(walls[b]["walltype"]===3){
+            if(walls[b]["wally"]-dangerdistance<Math.floor(ship.y)&&Math.floor(ship.y)<walls[b]["wally"]+dangerdistance){
+                if(Math.floor(ship.x)<walls[b]["wallx"]-100){end_game();}
+                if(Math.floor(ship.x)>walls[b]["wallx"]+100){end_game();}
+            }
+        }
+        if(walls[b]["walltype"]===4){
+            if(walls[b]["wallx"]-dangerdistance<Math.floor(ship.x)&&Math.floor(ship.x)<walls[b]["wallx"]+dangerdistance){
+                if(Math.floor(ship.y)<walls[b]["wally"]-100){end_game();}
+                if(Math.floor(ship.y)>walls[b]["wally"]+100){end_game();}
+            }
+        }
+    }
+}
+
 
 function move(){
 //turning ship.r into a split velocity
@@ -134,10 +179,13 @@ ctx.moveTo(ship.x, ship.y);
 
 ctx.closePath();
 
+
 // the fill color
 ctx.strokeStyle = "#FFFFFF";
 ctx.lineWidth = 5;
 ctx.stroke();
+
+renderwalls();
 };
 newframe();
 alert("use left and right arrow keys to rotate, use up to accelerate. alternatively, use WASD in the same way.")
