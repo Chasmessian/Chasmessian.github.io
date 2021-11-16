@@ -95,10 +95,19 @@ if(ship.y>canvas.height-20){
     ship.y=canvas.height-20
 }
 testgamestatus();
+scoreupdate();
 gameLoop();
 newframe();
 move();
 },5)
+
+function scoreupdate(){
+    document.getElementById("score").innerHTML=("score: "+ score)
+};
+var timescore = setInterval(function(){
+    score+=1
+},1000)
+
 
 function testgamestatus(){
     for(var b =0;b<walls.length;b++){
