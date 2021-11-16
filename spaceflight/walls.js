@@ -4,6 +4,7 @@ var left_rightwallspeed = 1
 var speedmultiplier = 1
 var timebetween = 2000;
 var wall_limit=10;
+var score = 0;
 function renderwalls(){
     for(var i = 0;i<walls.length; i++){
         if(walls[i]["walltype"]===1){
