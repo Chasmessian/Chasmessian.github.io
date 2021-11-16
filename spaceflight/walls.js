@@ -68,7 +68,7 @@ var wallmaker = setInterval(function createwall(){
         var wallvy = up_downwallspeed
     } else if(walltype===2){
         var wallx = window.innerWidth+10
-        var wally = Math.floor(Math.random()*window.innerHeight+1)
+        var wally = Math.floor(Math.random()*window.innerWidth+1)
         var wallvx = -1*left_rightwallspeed
         var wallvy=0
     } else if(walltype===3){
@@ -78,7 +78,7 @@ var wallmaker = setInterval(function createwall(){
         var wallvy=-1*up_downwallspeed
     } else if(walltype===4){
         var wallx=-10
-        var wally=Math.floor(Math.random()*window.innerHeight+1)
+        var wally=Math.floor(Math.random()*window.innerWidth+1)
         var wallvx = left_rightwallspeed
         var wallvy = 0
     }
