@@ -62,23 +62,23 @@ function renderwalls(){
 var wallmaker = setInterval(function createwall(){
     var walltype=Math.floor(Math.random()*4+1)
     if(walltype===1){
-        var wallx = Math.floor(Math.random()*window.innerHeight+1)
+        var wallx = Math.floor(Math.random()*window.innerWidth+1)
         var wally = -10
         var wallvx = 0
         var wallvy = up_downwallspeed
     } else if(walltype===2){
         var wallx = window.innerWidth+10
-        var wally = Math.floor(Math.random()*window.innerWidth+1)
+        var wally = Math.floor(Math.random()*window.innerHeight+1)
         var wallvx = -1*left_rightwallspeed
         var wallvy=0
     } else if(walltype===3){
-        var wallx = Math.floor(Math.random()*window.innerHeight+1)
+        var wallx = Math.floor(Math.random()*window.innerWidth+1)
         var wally = window.innerHeight+10
         var wallvx=0
         var wallvy=-1*up_downwallspeed
     } else if(walltype===4){
         var wallx=-10
-        var wally=Math.floor(Math.random()*window.innerWidth+1)
+        var wally=Math.floor(Math.random()*window.innerHeight+1)
         var wallvx = left_rightwallspeed
         var wallvy = 0
     }
