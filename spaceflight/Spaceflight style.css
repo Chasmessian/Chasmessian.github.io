@@ -10,3 +10,10 @@ body {
 	background-color: rgb(12, 0, 24);
 	cursor: crosshair;
 }
+#score {
+	position: absolute;
+	color: white;
+	top:5px;
+	left:15px;
+	z-index: 1;
+}
