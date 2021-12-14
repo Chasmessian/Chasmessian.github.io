@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+<body>
+  <div> 
+
+  <h1>Area of Rectangle</h1>
+  <h2>Height</h2>
+  <textarea id="height" style="resize: none;" cols="5" row="1"></textarea>
+  <h2>Width</h2>
+  <textarea id="width" style="resize:none;" cols="5" row="1"></textarea>
+  <br>
+  <button id="area" onclick="area()">Calculate</button>
+  <br>
+  <textarea id="resultarea" style="resize:none;" readonly=true></textarea>
+  </div>
+  <!-- above is rectange area calculator -->
+  <div>
+<h1>Volume of Sphere</h1>
+<h2>Radius</h2>
+<textarea id="radius" cols="5" rows="1" style="resize:none;"></textarea>
+<br>
+<button id="resultvolume" onclick="volume()">Calculate</button>
+<br>
+<textarea id="outputvolume" cols="50" rows="1" style="resize:none;" readonly></textarea>
+  </div>
+  <!-- above is sphere volue calculator -->
+  <div>
+    <h1>Area of Circle</h1>
+    <h2>radius:</h2>
+    <textarea id="circleradius" cols="5" rows="1" style="resize:none"></textarea>
+    <br>
+    <button id="areacircle" onclick="areacircle()">Calculate</button>
+    <br>
+    <textarea id="circlearearesult" cols="50" rows="1" style="resize:none;" readonly></textarea>
+  </div>
+  <!-- above is circle area calculator -->
+  <div>
+    <h1>Rectangular Prism Volume</h1>
+    <h2>Height</h2>
+    <textarea id="heightrectpris" cols="5" rows="1" style="resize:none;"></textarea>
+    <h2>Width</h2>
+    <textarea id="widthrectpris" cols="5" rows="1" style="resize:none;"></textarea>
+    <h2>Depth</h2>
+    <textarea id="depthrectpris" cols="5" rows="1" style="resize:none;"></textarea>
+    <br>
+    <button id="caculaterectpris" onclick="rectprisvolume()">Calculate</button>
+    <br>
+    <textarea id="resultsrectpris" cols="50" rows="1" style="resize:none;" readonly></textarea>
+  </div>
+  <!-- The above area is for Rectangular Prism Volume -->
+  <div>
+    <h1>Cone Volume</h1>
+    <h2>Height</h2>
+    <textarea id="coneheight" cols="5" rows="1" style="resize:none;"></textarea>
+    <h2>Radius</h2>
+    <textarea id="coneradius" cols="5" rows="1" style="resize:none;"></textarea>
+    <br>
+    <button onclick="conevolume()">Calculate</button>
+    <br>
+    <textarea id="outputcone" cols="50" rows="1" style="resize:none;" readonly></textarea>
+  </div>
+  <!-- Above is for cone -->
+<div>
+<h1>Quadratic Equation (ax^2+bx+c)</h1>
+<h2>Term a</h2>
+<textarea id="terma" cols="5" rows="1" style="resize:none;"></textarea>
+<h2>Term b</h2>
+<textarea id="termb" cols="5" rows="1" style="resize:none;"></textarea>
+<h2>Term c</h2>
+<textarea id="termc" cols="5" rows="1" style="resize:none;"></textarea>
+<br>
+<button onclick="quadraticsolve()">Calculate</button>
+<br>
+<textarea id="quadraticresult" cols="50" rows="1" style="resize:none;" readonly></textarea>
+</div>
+<!-- Above is for quadratic equation -->
+
+</body>
+<head>
+  <script>
+function area(){
+  document.getElementById("resultarea").value = "The area is " + (Number(document.getElementById("height").value)*Number(document.getElementById("width").value))+"."
+}
+function volume(){
+  var volume = (4/3)*Math.PI*Math.pow(Number(document.getElementById("radius").value),3)
+  document.getElementById("outputvolume").value=("The volume is " + volume + ".")
+}
+function areacircle(){
+  areacircle = Math.PI*Math.pow(Number(document.getElementById("circleradius").value),2)
+  document.getElementById("circlearearesult").value = "The area of the circe is " + areacircle +"."
+}
+function rectprisvolume(){
+  rectprisvolume = Number(document.getElementById("heightrectpris").value)*Number(document.getElementById("widthrectpris").value)*Number(document.getElementById("depthrectpris").value)
+  document.getElementById("resultsrectpris").value = "The volume of the Rectangular Prism is " + rectprisvolume + "."
+}
+function conevolume(){
+  volume = Math.PI*Math.pow(Number(document.getElementById("coneradius").value),2)*(Number(document.getElementById("coneheight").value)/3)
+  document.getElementById("outputcone").value = "The Volume of the Cone is " + volume + "."
+}
+function quadraticsolve(){
+  var terma = Number(document.getElementById("terma").value)
+  var termb = Number(document.getElementById("termb").value)
+  var termc = Number(document.getElementById("termc").value)
+  formula1 = (termb*(-1)+(Math.sqrt(Math.pow(termb,2)-4*terma*termc)))/(2*terma)
+  formula2 = (termb*(-1)-(Math.sqrt(Math.pow(termb,2)-4*terma*termc)))/(2*terma)
+ document.getElementById("quadraticresult").value = ("The answers (if there are any are " + formula1*-1 + " & " + formula2*-1 + ". If it returns as NaN, there is no answer.")
+}
+  </script>
+</head>
+</html>
