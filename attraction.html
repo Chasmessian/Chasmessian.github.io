@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="attraction/attraction.js"></script>
+    <link rel="stylesheet" href="attraction/style.css">
+    <title>Attraction Calculator</title>
+</head>
+<body>
+    <h1>Use This Calculator To Find How Attracted Someone Is To You!</h1>
+    <p>Don't use letters</p>
+    <h2>Your Mass (weight) in Kilograms</h1>
+    <textarea id="m1" rows="1" cols="50" style="resize:none;"></textarea>
+    <br><br>
+    <h2>Their Mass (weight) in Kilograms</h1>
+    <textarea id="m2" rows="1" cols="50" style="resize:none;"></textarea>
+    <br><br>
+    <h1>Fill out the Latitude/Longitude part if you don't know the distance between you and the other person. Otherwise, skip to the Distance area</h1>
+    <h2>Your Location</h2>
+    <h3>Your Latitude:</h3>
+    <textarea id="lat1" rows="1" cols="50" style="resize:none;"></textarea>
+    <h3>Your Longitude:</h3>
+    <textarea id="long1" rows="1" cols="50" style="resize:none;"></textarea>
+    <h2>Their Location</h2>
+    <h3>Their Latitude:</h3>
+    <textarea id="lat2" rows="1" cols="50" style="resize:none;"></textarea>
+    <h3>Their Longitude:</h3>
+    <textarea id="long2" rows="1" cols="50" style="resize:none;"></textarea>
+    <h1>Fill out the distance between you and them here if you know it (In kilometers).</h1>
+    <textarea id="distance" rows="1" cols="50" style="resize:none;"></textarea>
+    <br> <br> <br>
+    <button onClick="calculate()">Calculate</button>
+</body>
+</html>
