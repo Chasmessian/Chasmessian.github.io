@@ -1,0 +1,30 @@
+h1 {
+text-align: center;
+}
+h2 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    font-size: xx-large;
+}
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+p {
+    text-align: center;
+}
+body {
+    background-color: lightgrey;
+}
