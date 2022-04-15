@@ -5,7 +5,7 @@ var walls=[[0,20,20,10],[0,0,300,200],[200,300,400,100],[0,500,200,400],[300,450
 let mouseX;
 let mouseY;
 const rayLength = 300;
-const rayAmount = 3960;
+const rayAmount = 3960
 const rayInterval = 360/rayAmount;
 
 let mainLoop = setInterval(function(){
