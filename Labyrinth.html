@@ -5,20 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Labyrinth</title>
-    <script src="labyrinth/classes.js" defer></script>
-    <script src="labyrinth/functions.js" defer></script>
-    <script src="labyrinth/Setup.js" defer></script>
-    <script src="labyrinth/aStar.js" defer></script>
-    <script src="labyrinth/Loop.js"></script>
-    <script src="labyrinth/MainRender.js" defer></script>
+    <script src="classes.js" defer></script>
+    <script src="functions.js" defer></script>
+    <script src="Setup.js" defer></script>
+    <script src="aStar.js" defer></script>
+    <script src="LightRender.js" defer></script>
+    <script src="Loop.js"></script>
+    <script src="MainRender.js" defer></script>
 </head>
 <body>
-    <canvas width = 500, height=500, id="canvas" style="
+    <h2 id="coinCount" style="text-align: center;">Coins Remaining:</h2>
+    <canvas width = 500, height=500, onmousemove="getMousePos(canvas, event)" id="canvas" style="
     top: 0px;
     background-color: lightblue;
     padding: 0;
     margin: auto;
     display: block;"></canvas>
+
     
 </body>
 
