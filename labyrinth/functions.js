@@ -59,11 +59,11 @@ return Math.atan2(figurativeY,figurativeX)
 
 //delete before publish
 
-function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    mouseX = evt.clientX - rect.left;
-    mouseY = evt.clientY - rect.top;
-}
+// function getMousePos(canvas, evt) {
+//     var rect = canvas.getBoundingClientRect();
+//     mouseX = evt.clientX - rect.left;
+//     mouseY = evt.clientY - rect.top;
+// }
 
 
 
