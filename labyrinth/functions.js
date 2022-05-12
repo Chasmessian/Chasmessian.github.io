@@ -83,7 +83,7 @@ function updateCoins(){
 
 function checkVictory(){
 if(coins.length==0){
-    victory()
+    doVictory()
     victory = true
 }
 }
@@ -97,7 +97,7 @@ function deathCheck(){
     }
 }
 
-function victory(){
+function doVictory(){
     alert("YOU WIN!!! CONGRATULATIONS")
 }
 
