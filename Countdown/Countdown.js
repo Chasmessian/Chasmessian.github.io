@@ -1,5 +1,5 @@
 var countDownDate = new Date("Dec 18, 2022 0:0:0").getTime();
-var audio = new Audio('heartbeat.mp3');
+var audio = new Audio('Countdown/heartbeat.mp3');
 // Update the count down every 1 second
 
 var i = 0
@@ -25,7 +25,6 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById("Countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
+  document.getElementById("Countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  document.getElementById("Countdown").title = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 }, 1000);
