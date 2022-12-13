@@ -1,10 +1,21 @@
 var countDownDate = new Date("Dec 18, 2022 0:0:0").getTime();
+var audio = new Audio('heartbeat.mp3');
+// Update the count down every 1 second
 
-
+var i = 0
 var x = setInterval(function() {
 
-  var now = new Date().getTime();
+  i = i+1
 
+  if(i==30){
+    document.getElementById('Countdown').click();
+    i=0
+  }
+  if(i%2==0){
+    audio.play()
+  }
+
+  var now = new Date().getTime();
 
   var distance = countDownDate - now;
 
