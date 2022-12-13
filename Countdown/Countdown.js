@@ -29,12 +29,11 @@ var x = setInterval(function() {
   if(i==7){
   makeRandom = randomize(display)
   split = display.split('')
-  console.log(split)
   for(i=0;i<3;i++){
     split[makeRandom[i]] = randomUnicode()
   }
   display = split.join('')
-  // console.log(display)
+  console.log(display)
   }
   document.getElementById("Countdown").innerHTML = display
   document.getElementById("Countdown").title = display
@@ -76,8 +75,4 @@ function randomize(string){
   randArray = [r1,r2,r3]
   return(randArray)
   }
-function randomUnicode(){
-  rand = Math.floor(Math.random()*139+8448)
-  //from 8448 - 8587
-  return("&#" + rand)
-}
+  let randomUnicode = () => String.fromCharCode(Math.floor(Math.random() * 139+8448));
