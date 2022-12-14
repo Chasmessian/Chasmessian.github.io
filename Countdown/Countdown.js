@@ -1,4 +1,4 @@
-var countDownDate = new Date("Dec 18, 2022 0:0:0").getTime();
+var countDownDate = new Date("Jan 5, 2023 7:30:0").getTime();
 var audio = new Audio('Countdown/heartbeat.mp3');
 // Update the count down every 1 second
 
