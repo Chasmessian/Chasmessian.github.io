@@ -18,6 +18,6 @@ loop = setInterval(function(){
     }
     newMinutes = Math.floor(normal.totalSeconds/40)
     newSeconds = normal.totalSeconds - newMinutes * 40
-    string = normal.hours + ":" + newMinutes + ":" + newSeconds + " " + end
+    string = newHours + ":" + newMinutes + ":" + newSeconds + " " + end
     timer.innerHTML = string
 },1000)
