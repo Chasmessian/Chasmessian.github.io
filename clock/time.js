@@ -20,4 +20,4 @@ loop = setInterval(function(){
     newSeconds = normal.totalSeconds - newMinutes * 40
     string = newHours + ":" + newMinutes + ":" + newSeconds + " " + end
     timer.innerHTML = string
-},1000)
+},250)
