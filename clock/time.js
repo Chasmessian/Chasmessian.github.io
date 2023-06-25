@@ -1,5 +1,6 @@
 timer = document.getElementById("clock")
 i = 0
+secondsInMinute = 36
 loop = setInterval(function(){
     i++
     now = new Date()
@@ -16,8 +17,8 @@ loop = setInterval(function(){
         newHours-=12
         end = "PM"
     }
-    newMinutes = Math.floor(normal.totalSeconds/40)
-    newSeconds = normal.totalSeconds - newMinutes * 40
+    newMinutes = Math.floor(normal.totalSeconds/secondsInMinute)
+    newSeconds = normal.totalSeconds - newMinutes * secondsInMinute
     string = newHours + ":" + newMinutes + ":" + newSeconds + " " + end
     timer.innerHTML = string
 },250)
