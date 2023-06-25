@@ -1,6 +1,6 @@
 timer = document.getElementById("clock")
 i = 0
-secondsInMinute = 36
+secondsInMinute = 48
 loop = setInterval(function(){
     i++
     now = new Date()
