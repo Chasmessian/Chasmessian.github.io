@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soda</title> 
+  <script defer>
+let rate = 0.0000039118
+let total = 0
+// console.log(elapsedStartTime * rate)
+setInterval(function(){
+    total += rate * (16/1000)
+    // console.log(total)
+    document.getElementById("drops").innerHTML = total + " drops"
+},16)
+
+  </script>
+</head>
+<body>
+    <h1 id="drops">0</h1>
+</body>
+</html>
+
+
